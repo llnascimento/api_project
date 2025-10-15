@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">API_2110</string>
+    <string name="hint_busca">Nome ou ID do Pokémon</string>
+    <string name="bulbasaur">bulbasaur *</string>
+    <string name="busca_btn">Buscar Pokémon</string>
+    <string name="pokemonName">Bulbasour</string>
+    <string name="pokemonType">Grass</string>
+    <string name="pokemonId">#001</string>
+    <string name="hp">HP</string>
+    <string name="hpValue">45</string>
+    <string name="attackValue">49</string>
+    <string name="Defense">Defense</string>
+    <string name="defenseValue">49</string>
+    <string name="attack">Attack</string>
+    <string name="weight">Weight</string>
+    <string name="weightValue">6.9 kg</string>
+    <string name="speedValue">45</string>
+    <string name="speed">Speed</string>
+    <string name="pokemon_image">Imagem do Pokémon</string>
+</resources>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Input para buscar Pokemon -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/hint_busca"
+            app:boxStrokeColor="#000000"
+            app:hintTextColor="#000000">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pokemonSearchInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textCursorDrawable="@null"
+                android:textColorHighlight="#CCCCCC"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Botão de Buscar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearchPokemon"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/busca_btn"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="24dp"
+            app:icon="@android:drawable/ic_menu_search"
+            app:iconGravity="textStart"
+            android:background="@drawable/gradient_background"
+            app:backgroundTint="@null" />
+
+        <!-- Card do Pokemon -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/pokemonCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="1dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="#000000"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:gravity="center">
+
+                <!-- Loading Indicator -->
+                <ProgressBar
+                    android:id="@+id/loadingIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <!-- Pokemon Content -->
+                <LinearLayout
+                    android:id="@+id/pokemonContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Pokemon Image -->
+                    <ImageView
+                        android:id="@+id/pokemonImage"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:contentDescription="@string/pokemon_image" />
+
+                    <!-- Pokemon Name -->
+                    <TextView
+                        android:id="@+id/pokemonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pokemonName"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_marginTop="16dp" />
+
+                    <!-- Pokemon Type -->
+                    <TextView
+                        android:id="@+id/pokemonType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pokemonType"
+                        android:textSize="16sp"
+                        android:textColor="#666666"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Pokemon ID -->
+                    <TextView
+                        android:id="@+id/pokemonId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pokemonId"
+                        android:textSize="14sp"
+                        android:textColor="#999999"
+                        android:layout_marginBottom="24dp" />
+
+                    <!-- Stats Container -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="8dp">
+
+                        <!-- HP -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hp"
+                                android:textSize="16sp"
+                                android:textColor="#333333" />
+
+                            <ProgressBar
+                                android:id="@+id/hpBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="45"
+                                android:progressTint="#FF5252"
+                                android:progressBackgroundTint="#E0E0E0" />
+
+                            <TextView
+                                android:id="@+id/hpValue"
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/hpValue"
+                                android:textSize="14sp"
+                                android:gravity="end"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <!-- Attack -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/attack"
+                                android:textSize="16sp"
+                                android:textColor="#333333" />
+
+                            <ProgressBar
+                                android:id="@+id/attackBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="49"
+                                android:progressTint="#F57C00"
+                                android:progressBackgroundTint="#E0E0E0" />
+
+                            <TextView
+                                android:id="@+id/attackValue"
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/attackValue"
+                                android:textSize="14sp"
+                                android:gravity="end"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <!-- Defense -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Defense"
+                                android:textSize="16sp"
+                                android:textColor="#333333" />
+
+                            <ProgressBar
+                                android:id="@+id/defenseBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="49"
+                                android:progressTint="#FFC107"
+                                android:progressBackgroundTint="#E0E0E0" />
+
+                            <TextView
+                                android:id="@+id/defenseValue"
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/defenseValue"
+                                android:textSize="14sp"
+                                android:gravity="end"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <!-- Speed -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/speed"
+                                android:textSize="16sp"
+                                android:textColor="#333333" />
+
+                            <ProgressBar
+                                android:id="@+id/speedBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="8dp"
+                                android:layout_weight="1"
+                                android:max="255"
+                                android:progress="45"
+                                android:progressTint="#00BCD4"
+                                android:progressBackgroundTint="#E0E0E0" />
+
+                            <TextView
+                                android:id="@+id/speedValue"
+                                android:layout_width="40dp"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textSize="14sp"
+                                android:gravity="end"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+
+                        <!-- Weight -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/weight"
+                                android:textSize="16sp"
+                                android:textColor="#333333" />
+
+                            <TextView
+                                android:id="@+id/weightValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/weightValue"
+                                android:textSize="16sp"
+                                android:textColor="#666666" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>
