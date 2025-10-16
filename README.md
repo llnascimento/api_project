@@ -59,7 +59,10 @@ A aplicação possui uma **interface clean e minimalista**, composta por:
 ✅ **Carregamento de Imagens Remotas**  
 ✅ **Clean Architecture**  
 
-## 👨‍💻 Autor
+---
 
-Desenvolvido por **Lucas Lopes do Nascimento**  
-🔗 [GitHub - llnascimento](https://github.com/llnascimento)
+## 👨‍💻 Integrantes
+
+- **Lucas Nascimento** – RGM: **38771896**
+
+---
