@@ -63,6 +63,6 @@ A aplicação possui uma **interface clean e minimalista**, composta por:
 
 ## 👨‍💻 Integrantes
 
-- **Lucas Nascimento** – RGM: **38771896**
-
+- **Lucas Nascimento** – RGM: **5838771896**
+- **Ian Manoel** – RGM: **5840657604**
 ---
